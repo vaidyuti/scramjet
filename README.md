@@ -1,15 +1,21 @@
-# scramjet
+# Scramjet
 
-To install dependencies:
+**TODO: Add description**
 
-```bash
-bun install
+## Installation
+
+If [available in Hex](https://hex.pm/docs/publish), the package can be installed
+by adding `scramjet` to your list of dependencies in `mix.exs`:
+
+```elixir
+def deps do
+  [
+    {:scramjet, "~> 0.1.0"}
+  ]
+end
 ```
 
-To run:
+Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
+and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
+be found at [https://hexdocs.pm/scramjet](https://hexdocs.pm/scramjet).
 
-```bash
-bun run index.ts
-```
-
-This project was created using `bun init` in bun v0.1.13. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
