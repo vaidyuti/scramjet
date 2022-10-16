@@ -12,7 +12,7 @@ defmodule Scramjet do
       :world
 
   """
-  def hello do
-    :world
+  def start do
+    IO.puts("Hello World")
   end
 end
