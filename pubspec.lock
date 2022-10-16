@@ -64,6 +64,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.2"
+  dotenv:
+    dependency: "direct main"
+    description:
+      name: dotenv
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.0.1"
+  event_bus:
+    dependency: transitive
+    description:
+      name: event_bus
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
   file:
     dependency: transitive
     description:
@@ -135,7 +149,7 @@ packages:
     source: hosted
     version: "0.12.12"
   meta:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: meta
       url: "https://pub.dartlang.org"
@@ -148,6 +162,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.2"
+  mqtt5_client:
+    dependency: "direct main"
+    description:
+      name: mqtt5_client
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.3.2"
   node_preamble:
     dependency: transitive
     description:
