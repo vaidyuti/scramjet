@@ -1,16 +1,9 @@
-import 'package:scramjet/prosumer_data.dart';
+import 'package:scramjet/network_engine_snapshot.dart';
+import 'package:scramjet/schema.dart';
 
-final Map<String, ProsumerData> prosumerStates = Map.from({});
+final ProsumerStates states = Map.from({});
 
-void addEvent(String prosumerId, ProsumerData data) {
-  prosumerStates.update(
-    prosumerId,
-    (value) => data,
-    ifAbsent: () {
-      // print("New prosumer '$prosumerId' detected.");
-      return data;
-    },
-  );
-
-  // TODO: re-evaluate market price with new prosumer states
+VaidyutiNetworkState addEvent(String prosumerId, ProsumerInputData data) {
+  states.update(prosumerId, (value) => data, ifAbsent: () => data);
+  return VaidyutiNetworkEngineSnapshot(states).networkState;
 }
