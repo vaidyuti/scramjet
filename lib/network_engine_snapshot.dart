@@ -13,7 +13,16 @@ class VaidyutiNetworkEngineSnapshot {
   late ProsumerInputStates buyers = Map.fromEntries([
     for (final entry in prosumerInputStates.entries)
       if (entry.value.isImporter) entry,
-  ]);
+  ]).map(
+    (prosumerId, state) => MapEntry(
+      prosumerId,
+      ProsumerInputData(
+        state.exportPower,
+        state.isExternal ? state.baseTradePrice : energyMarketPrice,
+        state.isExternal,
+      ),
+    ),
+  );
 
   late ProsumerInputStates internalSellers = Map.fromEntries([
     for (final entry in sellers.entries)
