@@ -10,7 +10,6 @@ ProsumerInputData _$ProsumerInputDataFromJson(Map<String, dynamic> json) =>
     ProsumerInputData(
       json['export_power'] as num,
       json['base_selling_price'] as num,
-      json['category'] as String,
       json['is_external'] as bool,
     );
 
@@ -18,7 +17,6 @@ Map<String, dynamic> _$ProsumerInputDataToJson(ProsumerInputData instance) =>
     <String, dynamic>{
       'export_power': instance.exportPower,
       'base_selling_price': instance.baseSellingPrice,
-      'category': instance.category,
       'is_external': instance.isExternal,
     };
 
@@ -27,7 +25,6 @@ ProsumerOutputData _$ProsumerOutputDataFromJson(Map<String, dynamic> json) =>
       json['trade_price'] as num,
       json['export_power'] as num,
       json['base_selling_price'] as num,
-      json['category'] as String,
       json['is_external'] as bool,
     );
 
@@ -35,7 +32,6 @@ Map<String, dynamic> _$ProsumerOutputDataToJson(ProsumerOutputData instance) =>
     <String, dynamic>{
       'export_power': instance.exportPower,
       'base_selling_price': instance.baseSellingPrice,
-      'category': instance.category,
       'is_external': instance.isExternal,
       'trade_price': instance.tradePrice,
     };

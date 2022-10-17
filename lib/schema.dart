@@ -8,13 +8,11 @@ typedef ProsumerStates = Map<String, ProsumerInputData>;
 class ProsumerInputData {
   final num exportPower;
   final num baseSellingPrice;
-  final String category;
   final bool isExternal;
 
   const ProsumerInputData(
     this.exportPower,
     this.baseSellingPrice,
-    this.category,
     this.isExternal,
   );
 
@@ -35,9 +33,8 @@ class ProsumerOutputData extends ProsumerInputData {
     this.tradePrice,
     num exportPower,
     num baseSellingPrice,
-    String category,
     bool isExternal,
-  ) : super(exportPower, baseSellingPrice, category, isExternal);
+  ) : super(exportPower, baseSellingPrice, isExternal);
 
   factory ProsumerOutputData.fromJson(Map<String, dynamic> json) =>
       _$ProsumerOutputDataFromJson(json);
