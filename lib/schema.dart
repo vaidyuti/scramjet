@@ -24,6 +24,8 @@ class ProsumerInputData {
 
   bool get isExporter => exportPower >= 0.0;
   bool get isImporter => exportPower <= 0.0;
+
+  num get baseCashInflow => baseTradePrice * exportPower;
 }
 
 @JsonSerializable(fieldRename: FieldRename.snake)
