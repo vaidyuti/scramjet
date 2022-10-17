@@ -3,9 +3,17 @@ import 'package:scramjet/schema.dart';
 
 final ProsumerInputStates states = Map.from({});
 
-VaidyutiNetworkState updateState(String prosumerId, ProsumerInputData data) {
-  states.update(prosumerId, (value) => data, ifAbsent: () => data);
-  return VaidyutiNetworkEngineSnapshot(states).networkState;
+VaidyutiNetworkEngineSnapshot updateState(
+  String prosumerId,
+  ProsumerInputData data,
+) {
+  states.addAll({prosumerId: data});
+  return VaidyutiNetworkEngineSnapshot(states);
+}
+
+VaidyutiNetworkEngineSnapshot updateStates(ProsumerInputStates states) {
+  states.addAll(states);
+  return VaidyutiNetworkEngineSnapshot(states);
 }
 
 ProsumerInputData? getInputStateOf(String prosumerId) => states[prosumerId];

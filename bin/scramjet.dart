@@ -23,6 +23,8 @@ void main(List<String> arguments) async {
   client.subscribe('prosumer/+/base_trade_price', MqttQos.atMostOnce);
   client.subscribe('prosumer/+/is_external', MqttQos.atMostOnce);
 
+  var lastUpdatedAt = DateTime.now();
+
   client.updates.listen((event) {
     event.forEach((message) {
       final topicParts = message.topic!.split('/');
@@ -60,8 +62,23 @@ void main(List<String> arguments) async {
               fieldName: fieldValue,
             });
 
-      final state = scramjet.updateState(prosumerId, prosumerData);
-      print(state.toJson());
+      final engineSnapshot = scramjet.updateState(prosumerId, prosumerData);
+
+      final state = engineSnapshot.networkState;
+      final outputStates = engineSnapshot.outputStates;
+
+      const encoder = JsonEncoder.withIndent('  ');
+      print(encoder.convert({
+        // 'network_state': state.toJson(),
+        'prosumers': outputStates,
+      }));
+      final now = DateTime.now();
+      final delta = now.difference(lastUpdatedAt).inMicroseconds;
+      print(
+          '[VAIDYUTI/SCRAMJET]--------------------------END OF MARKET STATE DUMP AT $now--------------------------[VAIDYUTI/SCRAMJET] (eval time: $delta microseconds)');
+      lastUpdatedAt = now;
+      // print(state.toJson());
+      // print(jsonEncode(outputStates));
     });
   });
 }
