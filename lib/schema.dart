@@ -2,17 +2,18 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'schema.g.dart';
 
-typedef ProsumerStates = Map<String, ProsumerInputData>;
+typedef ProsumerInputStates = Map<String, ProsumerInputData>;
+typedef ProsumerOutputStates = Map<String, ProsumerOutputData>;
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class ProsumerInputData {
   final num exportPower;
-  final num baseSellingPrice;
+  final num baseTradePrice;
   final bool isExternal;
 
   const ProsumerInputData(
     this.exportPower,
-    this.baseSellingPrice,
+    this.baseTradePrice,
     this.isExternal,
   );
 
@@ -32,15 +33,17 @@ class ProsumerOutputData extends ProsumerInputData {
   const ProsumerOutputData(
     this.tradePrice,
     num exportPower,
-    num baseSellingPrice,
+    num baseTradePrice,
     bool isExternal,
-  ) : super(exportPower, baseSellingPrice, isExternal);
+  ) : super(exportPower, baseTradePrice, isExternal);
 
   factory ProsumerOutputData.fromJson(Map<String, dynamic> json) =>
       _$ProsumerOutputDataFromJson(json);
 
   @override
   Map<String, dynamic> toJson() => _$ProsumerOutputDataToJson(this);
+
+  num get cashInflow => tradePrice * exportPower;
 }
 
 @JsonSerializable(fieldRename: FieldRename.snake)

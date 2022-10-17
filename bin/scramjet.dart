@@ -20,7 +20,7 @@ void main(List<String> arguments) async {
 
   // client.subscribe('prosumer/+/data', MqttQos.atMostOnce);
   client.subscribe('prosumer/+/export_power', MqttQos.atMostOnce);
-  client.subscribe('prosumer/+/base_selling_price', MqttQos.atMostOnce);
+  client.subscribe('prosumer/+/base_trade_price', MqttQos.atMostOnce);
   client.subscribe('prosumer/+/is_external', MqttQos.atMostOnce);
 
   client.updates.listen((event) {
@@ -47,7 +47,7 @@ void main(List<String> arguments) async {
         );
 
         if (partialProsumerStates[prosumerId]!['export_power'] == null ||
-            partialProsumerStates[prosumerId]!['base_selling_price'] == null ||
+            partialProsumerStates[prosumerId]!['base_trade_price'] == null ||
             partialProsumerStates[prosumerId]!['is_external'] == null) return;
       }
 

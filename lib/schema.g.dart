@@ -9,14 +9,14 @@ part of 'schema.dart';
 ProsumerInputData _$ProsumerInputDataFromJson(Map<String, dynamic> json) =>
     ProsumerInputData(
       json['export_power'] as num,
-      json['base_selling_price'] as num,
+      json['base_trade_price'] as num,
       json['is_external'] as bool,
     );
 
 Map<String, dynamic> _$ProsumerInputDataToJson(ProsumerInputData instance) =>
     <String, dynamic>{
       'export_power': instance.exportPower,
-      'base_selling_price': instance.baseSellingPrice,
+      'base_trade_price': instance.baseTradePrice,
       'is_external': instance.isExternal,
     };
 
@@ -24,14 +24,14 @@ ProsumerOutputData _$ProsumerOutputDataFromJson(Map<String, dynamic> json) =>
     ProsumerOutputData(
       json['trade_price'] as num,
       json['export_power'] as num,
-      json['base_selling_price'] as num,
+      json['base_trade_price'] as num,
       json['is_external'] as bool,
     );
 
 Map<String, dynamic> _$ProsumerOutputDataToJson(ProsumerOutputData instance) =>
     <String, dynamic>{
       'export_power': instance.exportPower,
-      'base_selling_price': instance.baseSellingPrice,
+      'base_trade_price': instance.baseTradePrice,
       'is_external': instance.isExternal,
       'trade_price': instance.tradePrice,
     };
