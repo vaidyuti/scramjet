@@ -1,13 +1,10 @@
 name: scramjet
-description: A sample command-line application.
+description: Blazing fast Vaidyuti compliant market price evaluation microservice.
 version: 1.0.0
-# homepage: https://www.example.com
+homepage: https://github.com/vaidyuti
 
 environment:
   sdk: ">=2.18.2 <3.0.0"
-
-# dependencies:
-#   path: ^1.8.0
 
 dev_dependencies:
   build_runner: ^2.3.0
